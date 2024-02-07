@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      direction: rtl;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    a {
+      text-decoration-line: none;
+    }
+    .active {
+      display: none;
+    }
+    form #Submit {
+    position: absolute;
+   bottom: -270px;
+    
+  }
+  body #back {
+    position: absolute;
+    bottom: -300px;
+  }
+  </style>
+</head>
+
+<body>
+<h1>  اضافة منتج جديد</h1>
+
+<form action="/create" method="post">
+
+  <label for="x1" class="hiddin"> ID:</label><br class="hiddin">
+  <input type="text" id="x1" name="x1"  class="hiddin"><br class="hiddin">
+  <label for="x2">اسم الهاتف:</label><br>
+  <input type="text" id="x2" name="x2"><br>
+  <label for="x3" class="hiddin">ذاكرة الهاتف:</label><br class="hiddin">
+  <input type="text" id="x3" name="x3"  class="hiddin"><br class="hiddin">
+  <label for="x4">سعر الهاتف:</label><br>
+  <input type="text" id="x4" name="x4" ><br class="hiddin active">
+  <label for="x5" class="hiddin active">لون الهاتف :</label><br class="hiddin">
+  <input type="text" id="x5" name="x5"  class="hiddin active"><br class="hiddin">
+  
+  <label for="x6">نفاذ الكمية:</label><br>
+  <input type="text" id="x6" name="x6"><br>
+  <label for="x7">غير متوفر:</label><br>
+  <input type="text" id="x7" name="x7" ><br class="hiddin">
+  <label for="x8" class="hiddin">موديل الهاتف:</label><br class="hiddin">
+  <input type="text" id="x8" name="x8"  class="hiddin"><br class="hiddin">
+  <label for="x9" class="hiddin">صورة الهاتف:</label><br class="hiddin">
+  <input type="text" id="x9" name="x9"  class="hiddin"><br class="hiddin active">
+  <label for="x10" class="hiddin active">مواصفات الهاتف:</label><br>
+  <input type="text" id="x10" name="x10"class="hiddin active"><br class="hiddin ">
+  <label for="x11" class="hiddin">فئة الهاتف:</label><br class="hiddin">
+  <input type="text" id="x11" name="x11" class="hiddin"><br class="hiddin">
+  <label for="x12" class="hiddin">شركة الهاتف:</label><br class="hiddin">
+  <input type="text" id="x12" name="x12"  class="hiddin"><br class="hiddin">
+  <label for="x13" class="hiddin">نوع التصنيع:</label><br class="hiddin">
+  <input type="text" id="x13" name="x13"  class="hiddin"><br class="hiddin">
+  <label for="x14">اعجاب:</label><br>
+  <input type="text" id="x14" name="x14" ><br>
+  <input type="submit" value="اضافة" id="Submit">
+</form>
+<input type="text" id="addcol" name="cl" ><br>
+<div id="r">
+
+</div>
+<input type="text" class="adder"  value="الذكرة" required><br>
+<input type="text" class="adder"  value="الرام" required><br>
+<input type="text" class="adder"  value="الكامير الخلفية" required><br>
+<input type="text" class="adder"  value="الكامير الامامية" required><br>
+<input type="text" class="adder"  value="البطارية" required><br>
+<input type="text" class="adder"  value="الاندرويد" required><br>
+<input type="text" class="adder"  value="المعالج" required><br>
+<input type="text" class="adder"  value="حجم الشاشة" required><br>
+<input type="text" class="adder"  value="معدل التحديث" required><br>
+<div id="er">
+
+</div>
+<a href="/" id="back">الرجوع للقائمة الرئيسية</a>
+<script >
+  let b = document.getElementById("x5")
+  let jh = document.getElementById("r")
+  let addcol = document.getElementById("addcol")
+  let x10 = document.getElementById("x10")
+  let gh = document.getElementById("er")
+  let addern = document.getElementsByClassName("adder")
+  let colarr = []
+  let erarr = []
+  jh.innerHTML += `<button onclick="go()">اضافة لون</button>`
+  gh.innerHTML += `<button onclick="adder()">اضافة المواصفات</button>`
+  function go() {
+   
+    let mm = document.createElement("p")
+    mm.innerHTML = addcol.value
+    colarr.push(mm.innerHTML)
+   
+    let bn = JSON.stringify(colarr)
+  b.value = bn
+  }
+  function adder() {
+   let camare = [addern[2].value,addern[3].value]
+   let infall = [addern[0].value,addern[1].value,camare,addern[4].value,addern[5].value,
+   addern[6].value,addern[7].value,addern[8].value]
+   infall.forEach(kk => {
+    obje = {
+      s: kk
+    }
+    erarr.push(obje)
+   })
+   let jjj = JSON.stringify(erarr)
+   x10.value = jjj
+ }
+ 
+</script>
+</body>
+
+</html

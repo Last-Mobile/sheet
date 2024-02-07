@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      direction: rtl;
+      padding: 5px 10px;
+      text-align: center;
+    }
+    a {
+      text-decoration-line: none;
+    }
+  .hiddin {
+    display: none;
+  }
+  form #Submit {
+    position: fixed;
+    bottom: 10%;
+  }
+  body #back {
+    position: fixed;
+    bottom: 18%;
+  }
+</style>
+<body>
+<h1>تعديل البيانات</h1>
+
+<form action="/edit/<%= id %>" method="post">
+    <label for="x1" class="hiddin"> ID:</label><br class="hiddin">
+    <input type="text" id="x1" name="x1" value="<%= item[0] %>" class="hiddin"><br class="hiddin">
+    <label for="x2">اسم الهاتف:</label><br>
+    <input type="text" id="x2" name="x2" value="<%= item[1] %>"><br>
+    <label for="x3" class="hiddin">ذاكرة الهاتف:</label><br class="hiddin">
+    <input type="text" id="x3" name="x3" value="<%= item[2] %>" class="hiddin"><br class="hiddin">
+    <label for="x4">سعر الهاتف:</label><br>
+    <input type="text" id="x4" name="x4" value="<%= item[3] %>"><br><br class="hiddin">
+    <label for="x5" class="hiddin">لون الهاتف :</label><br class="hiddin">
+    <input type="text" id="x5" name="x5" value="<%= item[4] %>" class="hiddin"><br class="hiddin">
+    
+    <label for="x6">نفاذ الكمية:</label><br>
+    <input type="text" id="x6" name="x6" value="<%= item[5] %>"><br>
+    <label for="x7">غير متوفر:</label><br>
+    <input type="text" id="x7" name="x7" value="<%= item[6] %>"><br class="hiddin">
+    <label for="x8" class="hiddin">موديل الهاتف:</label><br class="hiddin">
+    <input type="text" id="x8" name="x8" value="<%= item[7] %>" class="hiddin"><br class="hiddin">
+    <label for="x9" class="hiddin">صورة الهاتف:</label><br class="hiddin">
+    <input type="text" id="x9" name="x9" value="<%= item[8] %>" class="hiddin"><br class="hiddin">
+    <label for="x10" class="hiddin">مواصفات الهاتف:</label><br>
+    <input type="text" id="x10" name="x10" value="<%= item[9] %>" class="hiddin"><br class="hiddin">
+    <label for="x11" class="hiddin">فئة الهاتف:</label><br class="hiddin">
+    <input type="text" id="x11" name="x11" value="<%= item[10] %>" class="hiddin"><br class="hiddin">
+    <label for="x12" class="hiddin">شركة الهاتف:</label><br class="hiddin">
+    <input type="text" id="x12" name="x12" value="<%= item[11] %>" class="hiddin"><br class="hiddin">
+    <label for="x13" class="hiddin">نوع التصنيع:</label><br class="hiddin">
+    <input type="text" id="x13" name="x13" value="<%= item[12] %>" class="hiddin"><br class="hiddin">
+    <label for="x14">اعجاب:</label><br>
+    <input type="text" id="x14" name="x14" value="<%= item[13] %>"><br>
+    <input type="submit" value="تعديل" id="Submit">
+
+</form>
+<div id="r">
+
+</div>
+<a href="/" id="back">الرجوع للقائمة الرئيسية</a>
+<script >
+  let b = document.getElementById("x5")
+  let m = b.value
+  let jh = document.getElementById("r")
+  let colarr = []
+let o = JSON.parse(m)
+  o.forEach(ele => {
+      jh.innerHTML += `<input value=${ele} class="mm"></input><br>`
+     
+      
+  });
+  jh.innerHTML += `<button onclick="go()">تعديل اللون</button>`
+  function go() {
+   
+    let mm = document.getElementsByClassName("mm")
+    colarr = []
+    for (const op of mm) {
+      
+      colarr.push(op.value)
+    }
+    let bn = JSON.stringify(colarr)
+  b.value = bn
+  }
+ 
+</script>
+</body>
+
+</html>

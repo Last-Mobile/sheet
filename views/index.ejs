@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            direction: rtl;
+            background: #f9f9f9;
+        }
+        
+        .flex {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            padding: 10px 15px;
+        }
+        .flex > div {
+            border: 1px solid #bfb3b3;
+            width: 300px;
+            flex-grow: 1;
+            padding: 5px 10px;
+            border-radius: 12px;
+            box-shadow: 0px 1px 6px 3px rgb(207 207 207 / 83%);
+            font-size: 18px;
+            font-weight: bold;
+            background-color: white;
+        }
+        .flex section {
+            display: none;
+            display: flex;
+            gap: 5px;
+        }
+        .flex .hidden {
+            display: none;
+        }
+        .red  {
+            color: red !important;
+        }
+        .flexSpace {
+            display: flex;
+           text-align: center;
+           padding: 10px;
+
+        }
+        .flexSpace a {
+            text-decoration-line: none;
+            width: 40%;
+            margin: 0 auto;
+            background-color: rgb(252, 78, 34);
+            border-radius: 12px;
+            padding: 5px;
+            color: white;
+        }
+        body h1 {
+            text-align: center;
+            padding: 10px 0;
+        }
+        body > .a {
+            border: 1px solid black;
+    padding: 5px;
+    border-radius: 12px;
+    text-decoration-line: none;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+    background-color: #ffff05;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>بيانات المنتج</h1>
+    <a href="/create" class="a">اضافة منتج</a> 
+    
+    
+ <div class="flex">
+    <% data.forEach((item, index) => { %>
+ <div>
+    <div>
+    <section class="hidden">
+        <p>رقم الايدي:</p>
+        <p class="red"><%= item[0] %></p>
+    </section>
+    <section>
+        <p>اسم الهاتف:</p>
+        <p class="red"><%= item[1] %></p>
+    </section>
+    
+    <section>
+        <p>ذاكرة الهاتف:</p>
+        <p class="red"><%= item[2] %></p>
+    </section>
+
+    <section>
+        <p>سعر الهاتف:</p>
+        <p class="red"><%= item[3] %></p>
+    </section>
+    
+    <section>
+        <p>لون الهاتف:</p>
+        <p class="red"><%= item[4] %></p>
+    </section>
+    
+    <section>
+        <p>نفاذ الهاتف:</p>
+        <p class="red"><%= item[5] %></p>
+    </section>
+    <section>
+        <p>توفر الهاتف:</p>
+        <p><%= item[6] %></p>
+    </section>
+    
+    <section class="hidden">
+        <p>موديل الهاتف:</p>
+        <p><%= item[7] %></p>
+    </section>
+    
+    <section class="hidden">
+        <p>صورة الهاتف:</p>
+        <p class="red"><%= item[8] %></p>
+    </section>
+
+    <section class="hidden">
+        <p>مواصفات الهاتف:</p>
+        <p class="red"><%= item[9] %></p>
+    </section>
+    
+    <section class="hidden">
+        <p>فئة الهاتف:</p>
+        <p class="red"><%= item[10] %></p>
+    </section>
+    
+    <section class="hidden">
+        <p>شركة الهاتف:</p>
+        <p class="red"><%= item[11] %></p>
+    </section>
+    <section class="hidden">
+        <p>تصنيع الهاتف:</p>
+        <p class="red"><%= item[12] %></p>
+    </section>
+    
+    <section>
+        <p>اعجاب الهاتف:</p>
+        <p class="red"><%= item[13] %></p>
+    </section>
+    </div>
+    <div class="flexSpace">
+    
+    <a href="/edit/<%= index + 1 %>">تعديل</a>
+    
+    <a href="/delete/<%= index + 1 %>">حذف</a> 
+    
+    </div>
+    
+</div>
+    <% }); %>
+</div> 
+   
+    
+    
+</body>
+</html>
